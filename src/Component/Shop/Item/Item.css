@@ -1,0 +1,28 @@
+.item-box{
+    border: 1px solid gray;
+    border-radius: 20px;
+    position: relative;
+    
+   
+    margin: 30px;
+    
+}
+img{
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+}
+.info{
+    padding-bottom: 50px;
+}
+.but-div{
+    background-color: rgb(143, 165, 20);
+    display: flex;
+    align-items:center ;
+    padding: 20px 0;
+    justify-content: center;
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
