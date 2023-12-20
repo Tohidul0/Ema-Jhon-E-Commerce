@@ -1,0 +1,9 @@
+.shop-container{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    background-color: aquamarine;
+}
+.card{
+    background-color: darkgoldenrod;
+    overflow: hidden;
+}
