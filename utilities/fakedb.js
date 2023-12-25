@@ -1,44 +1,50 @@
-// use local storage to manage cart data
-const addToDb = id => {
-    let shoppingCart = getShoppingCart();
-    // add quantity
-    const quantity = shoppingCart[id];
-    if (!quantity) {
-        shoppingCart[id] = 1;
+// data sotorage in local storage when clicked each country
+
+
+const fakeDb = id =>{
+
+    let shoppingCard = {};
+
+
+    // stored card----------------
+   
+    const storedCard= localStorage.getItem("shoping-cart");
+    if(storedCard){
+        shoppingCard=JSON.parse(storedCard)
     }
-    else {
-        const newQuantity = quantity + 1;
-        shoppingCart[id] = newQuantity;
+    
+    // const item= localStorage.getItem(id)
+    const item= shoppingCard[id];
+
+    if(item){
+        const newItem = item + 1;
+        //localStorage.setItem(id, newItem);
+        shoppingCard[id]=newItem;
+
     }
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-}
-
-const removeFromDb = id => {
-    const shoppingCart = getShoppingCart();
-    if (id in shoppingCart) {
-        delete shoppingCart[id];
-        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    else{
+        //localStorage.setItem(id, 1);
+        shoppingCard[id]=1;
     }
+    localStorage.setItem("shoping-cart", JSON.stringify(shoppingCard))
+
+
+    
 }
+const localStoreCard = () =>{
+        
+    let shoppingCard = {};
 
-const getShoppingCart = () => {
-    let shoppingCart = {};
 
-    //get the shopping cart from local storage
-    const storedCart = localStorage.getItem('shopping-cart');
-    if (storedCart) {
-        shoppingCart = JSON.parse(storedCart);
+    // stored card----------------
+   
+    const storedCard= localStorage.getItem("shoping-cart");
+    if(storedCard){
+        shoppingCard=JSON.parse(storedCard)
     }
-    return shoppingCart;
-}
+    return shoppingCard;
+    }
 
-const deleteShoppingCart = () => {
-    localStorage.removeItem('shopping-cart');
-}
+   
 
-export {
-    addToDb,
-    removeFromDb,
-    getShoppingCart,
-    deleteShoppingCart
-}
+export {fakeDb, localStoreCard}

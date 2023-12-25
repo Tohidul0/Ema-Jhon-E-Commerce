@@ -2,7 +2,7 @@ import React from 'react';
 import './Item.css'
 
 function Item(props) {
-    console.log(props.shop)
+    //console.log(props.shop)
     const {stroTocart}=props
     const {name, img, price,ratings} = props.shop;
     return (
