@@ -14,21 +14,35 @@ function Shop(props) {
     .then(data => setShops(data))
   },[])
 
+  let available = []
+
   useEffect(()=>{
     const localStrData= localStoreCard()
-    //console.log(localStrData)
+
+    console.log(localStrData)
     for (const id in localStrData)
     {
       const addedData = shops.find(shop => shop.id === id)
-      console.log(addedData);
+      if(addedData){
+        const quantity = localStrData[id];
+        addedData.quantity=quantity;
+        available.push(addedData)
+      //console.log(addedData);
+      }
     }
-    
-},[])
+    //console.log(available)
+    setCart(available)
+    console.log("achiree vai acchiii")
+
+},[shops])
 
   
 
   
   function stroTocart(shop){
+    if(!shop.quantity){
+      shop.quantity=1;
+    }
     const newCart=[...cart, shop];
     setCart(newCart)
     fakeDb(shop.id)
