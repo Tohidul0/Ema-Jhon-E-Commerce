@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+//import React, { useEffect } from 'react';
+import useCart from '../../../assets/Hooks/useCart';
 import './ShopiingCart.css'
 
 
 function ShoppingCart(props) {
-    const {cart} =props;
+    //const {cart} =props;
+    const [cart, setCart] = useCart()
     //console.log(cart)
     let total=0;
     let item =0;
@@ -13,8 +15,8 @@ function ShoppingCart(props) {
         total += one.price * one.quantity
         item += one.quantity;
     }
-    const tax= parseFloat((total * 0.1).toFixed(2)); 
-    const totalPrice = total+shipping + tax;
+    const tax= parseFloat((total * 0.1).toFixed(3)); 
+    const totalPrice =parseFloat((total+tax).toFixed(3));
 
     
     return (

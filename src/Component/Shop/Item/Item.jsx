@@ -4,12 +4,13 @@ import './Item.css'
 function Item(props) {
     //console.log(props.shop)
     const {stroTocart}=props
-    const {name, img, price,ratings} = props.shop;
+    const {name, img, price,ratings, shipping} = props.shop;
     return (
         <div className='item-box'>
             <img src={img}></img>
             <div className='info'>
                 <p>price : {price}</p>
+                <p>Shipping : {shipping}</p>
                 <p> Ratings : {ratings}</p>
                 <h3>Name : {name}</h3>
             </div>

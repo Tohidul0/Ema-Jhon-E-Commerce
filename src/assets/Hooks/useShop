@@ -1,0 +1,15 @@
+import { useEffect, useState } from "react"
+
+ const useShop = () =>{
+    const [shops,setShops]= useState([])
+
+    useEffect(()=>{
+        fetch('../../../fakeData/products.json')
+        .then(res => res.json())
+        .then(data => setShops(data))
+      },[])
+
+      return [shops, setShops]
+ }
+
+ export default useShop;
